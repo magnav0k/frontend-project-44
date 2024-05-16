@@ -13,7 +13,7 @@ const isEven = () => {
         }
         const question = ('Question: ' + getRandomInt(20));
         console.log(question);
-        const answer = readlineSync.result('Your answer: ')
+        const answer = readlineSync.question('Your answer: ');
         if (answer % 2 !== 0) {
             console.log(`'yes' is wrong answer ;(. Correct answer was 'no'.\nLet's try again, ${userName}!`);
             return;
