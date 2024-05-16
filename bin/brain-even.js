@@ -22,4 +22,5 @@ const isEven = () => {
     }
     console.log(`Congratulation, ${userName}!`);
 };
+isEven ();
 export default isEven;
