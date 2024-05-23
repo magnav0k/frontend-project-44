@@ -16,6 +16,7 @@ export default (rule, getQuestionAndAnswer) => {
         } else {
             console.log(`${anwser} is wrong answer ;(. Correct answer was ${correctAnswer}.`);
             console.log(`Let's try again, ${name}!`);
+            return;
         }
     }
     console.log(`Congratulations, ${name}!`);
