@@ -28,10 +28,13 @@ const randomInteger = (min, max) => {
 const prepareExpression = () => {
     const firstNumber = randomInteger(1, 100);
     const secondNumber = randomInteger(1, 100);
+    
     const arrSigns = ['+', '-', '*'];
-    const sign = arrSigns[randomInteger(arrSigns.length)];
-    const question = `${firstNumber} ${sign} ${secondNumber}`;
-    const answer = String(calculateFunc(sign, firstNumber, secondNumber));
+    const mathSigns = arrSigns[randomInteger(arrSigns.length)];
+    
+    const question = `${firstNumber} ${mathSigns} ${secondNumber}`;
+    const answer = String(calculateFunc(mathSigns, firstNumber, secondNumber));
+    
     return [question, answer];
 }
 
