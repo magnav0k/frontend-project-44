@@ -3,16 +3,21 @@ import game from '../index.js';
 const rule = 'What is the result of the expression?';
 
 const calculateFunc = (firstNumber, mathSigns, secondNumber) => {
+    let result = 0;
     switch (mathSigns) {
         case '+':
-            return firstNumber + secondNumber;
+            result = firstNumber + secondNumber;
+            break;
         case '-':
-            return firstNumber - secondNumber;
+            result = firstNumber - secondNumber;
+            break;
         case '*':
-            return firstNumber * secondNumber;
+            result = firstNumber * secondNumber;
+            break;
         default:
             console.log('Unknown operator');
     }
+    return result;
 }
 
 const randomInteger = (min, max) => {
