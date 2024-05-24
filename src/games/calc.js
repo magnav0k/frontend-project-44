@@ -2,42 +2,37 @@ import game from '../index.js';
 
 const rule = 'What is the result of the expression?';
 
+const arrSigns = ['+', '-', '*'];
+
 const calculateFunc = (firstNumber, mathSigns, secondNumber) => {
-    let result = 0;
     switch (mathSigns) {
         case '+':
-            result = firstNumber + secondNumber;
-            break;
+            return firstNumber + secondNumber;
         case '-':
-            result = firstNumber - secondNumber;
-            break;
+            return firstNumber - secondNumber;
         case '*':
-            result = firstNumber * secondNumber;
-            break;
+            return firstNumber * secondNumber;
         default:
-            console.log('Unknown operator');
+            break;
     }
-    return result;
-}
+};
 
 const randomInteger = (min, max) => {
     let rand = min + Math.random() * (max + 1 - min);
     return Math.floor(rand);
 }
 
-const prepareExpression = () => {
-    const firstNumber = randomInteger(1, 100);
-    const secondNumber = randomInteger(1, 100);
+const getQuestionAndAnswer = () => {
+    const randomNumber1 = randomInteger(1, 100);
+    const randomSigns = arrSigns[randomInteger(0, arrSigns.length - 1)];
+    const randomNumber2 = randomInteger(1, 50);
     
-    const arrSigns = ['+', '-', '*'];
-    const mathSigns = arrSigns[randomInteger(arrSigns.length)];
+    const question = `${randomNumber1} ${randomSigns} ${randomNumber2}`;
+    const correctAnswer = calculateFunc(randomNumber1, randomSigns, randomNumber2);
     
-    const question = `${firstNumber} ${mathSigns} ${secondNumber}`;
-    const answer = String(calculateFunc(mathSigns, firstNumber, secondNumber));
-    
-    return [question, answer];
-}
+    return [question, correctAnswer];
+};
 
 export default () => {
-game(rule, prepareExpression);
+game(rule, getQuestionAndAnswer);
 };
